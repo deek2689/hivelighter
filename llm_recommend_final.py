@@ -54,19 +54,7 @@ score_map = {
     -1: "reject (disliked)"
 }
 
-value_mapping = {
-    "Very Plain": 1, "Somewhat Plain": 2, "Balanced": 3, "Somewhat Stylistic": 4, "Very Stylistic": 5,
-    "Strongly Fact-Based": 1, "Somewhat Fact-Based": 2, "Balanced": 3, "Somewhat Opinion-Based": 4, "Strongly Opinion-Based": 5,
-    "Strong Critique": 1, "Somewhat Critique": 2, "Balanced": 3, "Somewhat Affirmation": 4, "Strong Affirmation": 5,
-    "Highly Complex": 1, "Somewhat Complex": 2, "Balanced": 3, "Somewhat Simple": 4, "Highly Simple": 5,
-    "Highly General": 1, "Somewhat General": 2, "Balanced": 3, "Somewhat Detailed": 4, "Highly Detailed": 5,
-    "Highly Informative": 1, "Somewhat Informative": 2, "Balanced": 3, "Somewhat Entertaining": 4, "Highly Entertaining": 5,
-    "Strongly Upside": 1, "Somewhat Upside": 2, "Balanced": 3, "Somewhat Downside": 4, "Strongly Downside": 5,
-    "Strong Agreement": 1, "Some Agreement": 2, "Balanced": 3, "Some Counterargument": 4, "Strong Counterargument": 5,
-    "Very Dry": 1, "Somewhat Dry": 2, "Balanced": 3, "Somewhat Emotionally Charged": 4, "Very Emotionally Charged": 5,
-    "Strongly Data-Driven": 1, "Somewhat Data-Driven": 2, "Balanced": 3, "Somewhat Narrative-Driven": 4, "Strongly Narrative-Driven": 5,
-    "Purely Quoted Statements": 1, "Mixed Quoted Statements and Authorial Narrative": 2, "Purely Authorial Narrative": 3
-}
+
 
 user_name = articles[0].get("user_name", "The user")
 formatted_rated = [
@@ -196,19 +184,6 @@ prompt_text = f"""
 - Articles rated **weak accept** were somewhat liked or neutral.
 - Articles rated **reject** were disliked.
 
-Each article includes a `response_array` — an 11-element list with numeric values (1–5) corresponding to the language lens dimensions below in detail. These features help identify tone, style, and narrative patterns in articles:
-
-plain_poeticness = StringField(required=True)
-fact_opinion = StringField(required=True)
-critique_affirmation = StringField(required=True)
-complexity_simplicity = StringField(required=True)
-general_detailed = StringField(required=True)
-informative_entertaining = StringField(required=True)
-upside_downside = StringField(required=True)
-agreement_counterargument = StringField(required=True)
-dry_emotionally_charged = StringField(required=True)
-data_narrative = StringField(required=True)
-quoted_authorial = StringField(required=True)
 
 Rated Articles with Context:
 {detailed_rated_block}
